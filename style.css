@@ -194,3 +194,15 @@ p {
     background-color: #fff2e5;
 }
 
+#search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 80px;
+}
+
+#search img {
+    width: 30px;
+    height: 30px;
+}
+
