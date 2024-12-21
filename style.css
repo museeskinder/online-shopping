@@ -198,11 +198,32 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 80px;
+    padding: 5px 80px;
 }
 
 #search img {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
+
+#search .search-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search .search-area img {
+    z-index: 999;
+}
+
+#search .search-area .search {
+    position: relative;
+    text-align: right;
+    border: none;
+    outline: none;
+    padding: 0 10px 0 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+
 
