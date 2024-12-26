@@ -226,4 +226,51 @@ p {
     font-weight: 300;
 }
 
+#discover h2, #discover p {
+    text-align: center;
+}
 
+#discover p {
+    font-size: 20px;
+    font-family: 'Tangerine' cursive; 
+}
+
+#discover .dis-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; 
+    margin: 70px 0;
+}
+
+#discover .dis-container .dis {
+    height: 500px;
+    width: 370px;
+    margin: 0 2px;
+} 
+
+#discover .dis-container .dis .des {
+    padding: 20px 0;
+    position: relative;
+}
+
+#discover .dis-container .dis .des span {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+#discover .dis-container .dis .des span:nth-child(2) {
+    display: block;
+    color: #088178;
+    margin: 15px 0;
+}
+
+#discover .dis-container .dis .des span .del {
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+
+#discover .dis-container .dis img {
+    width: 100%;
+    height: auto;
+}
