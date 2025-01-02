@@ -23,6 +23,7 @@ h2 {
 h4 {
     font-size: 20px;
     color: #222;
+    margin: 25px 0;
 }
 
 h6 {
@@ -87,8 +88,6 @@ p {
 #navbar li a.active::after, #navbar li a:hover::after {
     content: '';
     width: 30%;
-    height: 2px;
-    background: #088178;
     position: absolute;
     bottom: -4px;
     left: 20px;
@@ -273,4 +272,73 @@ p {
 #discover .dis-container .dis img {
     width: 100%;
     height: auto;
+}
+
+footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 80px;
+}
+
+footer .foo-sign {
+    text-align: center;
+}
+
+footer .foo-sign  p:nth-child(2) {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #088178;
+}
+
+footer .foo-sign input {
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 250px;
+    outline: none;
+    border: 2px solid #222;
+    color: 222;
+}
+
+footer .foo-sign input:hover {
+    outline: 1px solid #ccc8c8;
+    transition: .5s ease-in;
+}
+ 
+footer .foo-sign .foo-socials {
+    margin: 20px 0;
+}
+
+footer .foo-sign .foo-socials img {
+   height: 30px; 
+   width: 30px; 
+   cursor: pointer;
+}
+
+footer .foo-sec {
+    text-align: center;
+}
+
+.foo-sec h4 {
+   text-transform: uppercase; 
+   font-weight: 400;
+}
+
+.foo-sec ul  li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.foo-sec ul a {
+    text-decoration: none;
+    color: #222;
+}
+
+.foo-sec ul a:hover, .foo-sec ul a.active{
+    color: #088178;
+}
+
+.copy {
+    text-align: center;
+    margin: 20px 0;
 }
