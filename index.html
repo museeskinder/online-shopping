@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
-
+<body>
     <!--Search and Account Section-->
     <section id="search">
         <a href="#"><img src="images/search/profile.png" alt="profile"></a>
@@ -26,8 +26,13 @@
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="cart.html"><img src="images/parcel.png" alt="shopping-bag-icon"></a></li>
+                <li class="cart-icon"><a href="cart.html"><img src="images/parcel.png" alt="shopping-bag-icon"></a></li>
+                <a href="#"><img id="close" src="images/close.png" alt="close button"></a>
             </ul>
+        </div>
+        <div id="mobile">
+                <a href="cart.html"><img src="images/parcel.png" alt="shopping-bag-icon"></a>
+                <img  id="bar" src="images/hamburger.png" alt="hamburger icon">
         </div>
     </section>
 
@@ -118,31 +123,33 @@
                     <img src="images/svg icons/icons8-pinterest.svg" alt="pinterest">
                 </div>
             </div>
-            <div class="foo-sec">
-                <h4>Quick Links</h4>
-                <ul>
-                    <a href="#" class="active">Home</a>
-                    <a href="#"><li>Shop</li></a>
-                    <a href="#"><li>About</li></a>
-                </ul>
+            <div class="wrap-foo-sec">
+                <div class="foo-sec">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <a href="#" class="active">Home</a>
+                        <a href="#"><li>Shop</li></a>
+                        <a href="#"><li>About</li></a>
+                    </ul>
+                </div>
+                <div class="foo-sec">
+                    <h4>Shop</h4>
+                    <ul>
+                        <a href="#"><li>T-Shirt</li></a>
+                        <a href="#"><li>Hoodies</li></a>
+                        <a href="#"><li>Pants</li></a>
+                    </ul>
+                </div>
+                <div class="foo-sec">
+                    <h4>support</h4>
+                    <ul>
+                        <li>&#63 Help Center</li>
+                        <li>&#9742 +25192343433</li>
+                        <li>&#128231 shopii@webproject.com</li>
+                    </ul>
+                </div>
             </div>
-            <div class="foo-sec">
-                <h4>Shop</h4>
-                <ul>
-                    <a href="#"><li>T-Shirt</li></a>
-                    <a href="#"><li>Hoodies</li></a>
-                    <a href="#"><li>Pants</li></a>
-                </ul>
-            </div>
-            <div class="foo-sec">
-                <h4>support</h4>
-                <ul>
-                    <li>&#63 Help Center</li>
-                    <li>&#9742 +25192343433</li>
-                    <li>&#128231 shopii@webproject.com</li>
-                </ul>
-            </div>
-        </div>
+       </div>
         <p class="copy">&#169 2024 All rights reserved.</p>
        </footer>
     <script src="script.js"></script>

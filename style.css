@@ -281,6 +281,12 @@ footer .container {
     padding: 0 80px;
 }
 
+footer .container .wrap-foo-sec {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 footer .foo-sign {
     text-align: center;
 }
@@ -317,6 +323,7 @@ footer .foo-sign .foo-socials img {
 
 footer .foo-sec {
     text-align: center;
+    margin: 0 25px;
 }
 
 .foo-sec h4 {
@@ -342,3 +349,103 @@ footer .foo-sec {
     text-align: center;
     margin: 20px 0;
 }
+
+@media (max-width: 799px) {
+    #search {
+        display: none;
+    }
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        height: 100vh;
+        width: 300px;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        background-color: #e3e6f3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    #navbar li {
+        margin-bottom: 25px;
+    }
+
+    #navbar.active {
+        right: 0;
+    }
+    
+    #navbar .cart-icon {
+        display: none;
+    }
+
+    #mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    #mobile #bar {
+        height: 30px;
+        width: 30px;
+        margin-left: 20px;
+    }
+
+    #close {
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+    }
+
+    #hero {
+        height: 70vh;
+        padding: 0 80px;
+        background-position: top 30% right 30%;
+    }
+
+    
+
+    #feature {
+        justify-content: center;
+    }
+
+    #feature .fe-box {
+        margin: 15px 15px;
+    }
+   
+    footer .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 580px) {
+    #feature .fe-box {
+            width: 100%;
+    } 
+    #feature .fe-box h6 {
+        font-size: 20px;
+    }
+
+    footer .container .wrap-foo-sec {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 799px) {
+    #mobile {
+        display: none;
+    }
+
+    #close {
+        display: none;
+    }
+
+}
+
+
