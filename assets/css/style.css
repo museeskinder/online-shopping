@@ -101,13 +101,13 @@ p {
 }
 
 
-[src="images/parcel.png"] {
+[src="assets/images/parcel.png"] {
     height: 30px;
     width: 30px;
 }
 
 #hero {
-    background-image: url("images/hero4.png");
+    background-image: url("../images/hero4.png");
     height: 90vh;
     width: 100%;
     background-position: top 25% right 0;
@@ -127,7 +127,7 @@ p {
 }
 
 #hero button {
-    background-image: url("images/button.png");
+    background-image: url("../images/button.png");
     background-color: transparent;
     color: #088178;
     border: 0;
