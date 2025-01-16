@@ -225,6 +225,10 @@ p {
     font-weight: 300;
 }
 
+#discover {
+    padding: 20px 0;
+}
+
 #discover h2, #discover p {
     text-align: center;
 }
@@ -423,6 +427,32 @@ footer .foo-sec {
     }
 }
 
+.pagination {
+    margin: 15px 0;
+}
+
+.pagination ul {
+    display: flex;
+}
+
+.pagination ul li {
+    list-style: none;
+    border: 1px solid #088178;
+    border-radius: 2px;
+    padding: 10px 5px;
+}
+
+.pagination ul li a {
+    color: #088178;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.pagination ul li:hover, .pagination ul li a:hover {
+    background-color: #088178;
+    color: #cdebbc;
+}
+
 
 @media (max-width: 580px) {
     #feature .fe-box {
@@ -435,6 +465,11 @@ footer .foo-sec {
     footer .container .wrap-foo-sec {
         flex-direction: column;
     }
+
+    .pagination {
+        margin: 0;
+    }
+
 }
 
 @media (min-width: 799px) {
