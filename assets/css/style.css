@@ -454,6 +454,43 @@ footer .foo-sec {
 }
 
 
+/* Single product styles */
+.small-img-group {
+    display: flex;
+}
+
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+    margin: 0 4px;
+}
+
+.single-product input {
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.single-product h6 {
+    font-size: 40px;
+    color: #088178;
+}
+
+.single-product .buy-btn {
+    padding: 5px 10px;
+    background-color: #088178;
+    color: #e3e6f3;
+    border-radius: 5px;
+    border: none;
+}
+
+.single-product input:focus {
+    outline: none;
+}
+
+
 @media (max-width: 580px) {
     #feature .fe-box {
             width: 100%;
