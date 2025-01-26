@@ -1,0 +1,22 @@
+/* Register css */
+#register-form {
+    width: 50%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #088178;
+}
+
+#register-form input {
+    width: 50%;
+    margin: 5px auto;
+}
+
+#register-form #register-btn {
+    background-color: #088178;
+    color: #fff;
+}
+
+#register-form #register-url {
+    color: #088178;
+}
