@@ -73,44 +73,28 @@
         </div>
       </section>
 
-      <!-- Discover Section-->
-       <section id="discover">
+    <!-- Discover Section-->
+    <section id="discover">
         <h2>Discover What's New</h2>
         <p>New products in stock</p>
         <div class="dis-container">
-            <div class="dis">
-                <img src="assets/images/Discover/loosefit_crew-neck_cotton-grey.webp" alt="loose fit crew-neck cotton color grey">
-                <div class="des">
-                    <span>loose fit crew-neck cotton T-Shirt</span>
-                    <span>$50.00<span class="del">$58.77</span></span>
+            <?php include('server/get_discover_product.php'); ?> 
+            <?php while($row = $discoverProducts->fetch_assoc()) { ?>
+                <div class="dis">
+                    <a href="single_product.php?product_id=<?php echo $row['product_id']?>"><img src="assets/images/Discover/<?php echo $row['product_image']?>" alt="loose fit crew-neck cotton color grey"></a>
+                    <div class="des">
+                        <span><?php echo $row['product_name']?></span>
+                        <span>$<?php echo calculatePrice($row['product_price'], $row['product_special_discount']) ?>
+                            <span class="del">$<?php echo  displayPrice($row['product_price'], $row['product_special_discount'])?></span>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="dis">
-                <img src="assets/images/Discover/oversized-tee-black.webp" alt="oversized-tee-black">
-                <div class="des">
-                    <span>oversized tee black</span>
-                    <span>$40.43</span>
-                </div>
-            </div>
-            <div class="dis">
-                <img src="assets/images/Discover/oversized-tee-pearl-pink.webp" alt="oversized-tee-pearl-pink">
-                <div class="des">
-                    <span>oversized tee pearl pink</span>
-                    <span>$32.00<span class="del">$45.57</span></span>
-                </div>
-            </div>
-            <div class="dis">
-                <img src="assets/images/Discover/pure-cottton-biege.webp" alt="pure-cottton-beige">
-                <div class="des">
-                    <span>pure cotton beige</span>
-                    <span>$44.00</span>
-                </div>
-            </div>
+            <?php }?>
         </div>
-       </section>
+    </section>
 
-       <!-- Footer section-->
-       <footer>
+    <!-- Footer section-->
+    <footer>
         <div class="container">
             <div class="foo-sign">
                 <a href="#" class="logo"><p>Shopii</p></a>
@@ -151,7 +135,7 @@
             </div>
        </div>
         <p class="copy">&#169 2024 All rights reserved.</p>
-       </footer>
+    </footer>
     <script src="assets/js/script.js"></script>
 </body> 
 </html>
