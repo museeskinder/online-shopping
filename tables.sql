@@ -197,3 +197,21 @@ INSERT INTO `products` (
         'L, XL, M'
     );
 
+
+
+
+
+
+/*
+<?php include('server/get_discover_product.php'); ?>
+
+            <?php while($row = $discoverProducts->fetch_assoc()){ ?>
+                <div class="dis">
+                    <img src="assets/images/Discover/loosefit_crew-neck_cotton-grey.webp" alt="loose fit crew-neck cotton color grey">
+                    <div class="des">
+                        <span><?php echo $row['product_name'] ?></span>
+                        <span>$<?php echo calculatePrice($row['product_price'], $row['product_special_discount'])?>
+                            <span class="del">$55</span>
+                        </span>
+            <
+*/
