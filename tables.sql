@@ -87,3 +87,31 @@ CREATE TABLE IF NOT EXISTS `users` (
     PRIMARY KEY (`user_id`),
     UNIQUE KEY `UX_Constraint (`user_email`)`
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+/* Adding products on table */
+INSERT INTO `products` (
+    `product_name`, 
+    `product_category`,
+    `product_description`,
+    `product_image`,
+    `product_image2`,
+    `product_image3`,
+    `product_image4`,
+    `product_price`,
+    `product_special_offer`,
+    `product_color`,
+    `product_size`
+) VALUES (
+    'bono men hoodie',
+    'hoodies',
+    'grey men hoodie style',
+    'bono.webp',
+    'grey-hoodie-2.webp',
+    'grey-hoodie-3.webp',
+    'grey-hoodie-4.webp',
+    58.90,
+    0,
+    'grey',
+    'L'
+);
