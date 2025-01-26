@@ -115,3 +115,85 @@ INSERT INTO `products` (
     'grey',
     'L'
 );
+
+/* oversized tee black*/
+INSERT INTO `products` (
+    `product_name`, 
+    `product_category`,
+    `product_description`,
+    `product_image`,
+    `product_image2`,
+    `product_image3`,
+    `product_image4`,
+    `product_price`,
+    `product_special_offer`,
+    `product_color`,
+    `product_size`
+) VALUES (
+    'oversized tee black',
+    'T-shirt',
+    'black oversized thirt for men',
+    'oversized-tee-black.webp',
+    'oversized-tee-black-2.webp',
+    'oversized-tee-black-3.webp',
+    'oversized-tee-black-4.webp',
+    40.43,
+    20,
+    'black',
+    'L, XL, S, XS'
+);
+
+/* oversized tee pearl pink */
+INSERT INTO `products` (
+    `product_name`, 
+    `product_category`,
+    `product_description`,
+    `product_image`,
+    `product_image2`,
+    `product_image3`,
+    `product_image4`,
+    `product_price`,
+    `product_special_offer`,
+    `product_color`,
+    `product_size`
+) VALUES (
+    'oversized tee pearl pink',
+    'T-shirt',
+    'pink oversized thirt for men',
+    'oversized-tee-pearl-pink.webp',
+    'oversized-tee-pearl-pink-2.webp',
+    'oversized-tee-pearl-pink-3.webp',
+    'oversized-tee-pearl-pink-4.webp',
+    45.57,
+    0,
+    'pink',
+    'L, S, XS, M'
+);
+
+/* pure beige cotton */
+    INSERT INTO `products` (
+        `product_name`, 
+        `product_category`,
+        `product_description`,
+        `product_image`,
+        `product_image2`,
+        `product_image3`,
+        `product_image4`,
+        `product_price`,
+        `product_special_offer`,
+        `product_color`,
+        `product_size`
+    ) VALUES (
+        'pure cotton beige',
+        'T-shirt',
+        'beige cotton tshirt for men',
+        'pure-cotton-biege.webp',
+        'pure-biege-cotton-2.webp',
+        'pure-biege-cotton-3.webp',
+        'pure-biege-cotton-4.webp',
+        44.00,
+        0,
+        'biege',
+        'L, XL, M'
+    );
+
