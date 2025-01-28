@@ -158,7 +158,9 @@ $_SESSION['total'] = calculateTotaL();
         </div>
 
         <div class="checkout-container">
-            <button class="btn checkout-btn">Checkout</button>
+            <form action="checkout.php" method="POST">
+                <input class="btn checkout-btn" name="checkout" type="submit" value="Checkout">
+            </form>
         </div>
     </section>
 
