@@ -20,10 +20,8 @@ if(isset($_POST['add_to_cart'])) {
         }else {
             echo '<script>alert("product was already added to the cart!");</script>';
         }
-    }
-
-    // assuming this is a new product
-    else {
+    }else {
+        // assuming this is a new product
         $product_array = array(
             'product_id' => $_POST['product_id'],
             'product_name' => $_POST['product_name'],
@@ -37,6 +35,7 @@ if(isset($_POST['add_to_cart'])) {
         // [ 1 => [], 2 => [] ]
     }
 }
+
 
 //removing a product from the cart
 else if(isset($_POST['remove_product'])) {
@@ -54,8 +53,19 @@ else if(isset($_POST['edit_product'])) {
 
     $_SESSION['cart'][$product_id] = $product_array;
 }
-else 
-    header('location: index.php');
+
+function calculateTotal() {
+    $total = 0;
+
+    foreach($_SESSION['cart'] as $key => $value) {
+        $product = $_SESSION['cart'][$key];
+        $total += $product['product_price'] * $product['product_quantity'];
+    }
+
+    return $total;
+}
+
+$_SESSION['total'] = calculateTotaL();
 ?>
 
 <!DOCTYPE html>
@@ -110,8 +120,8 @@ else
                             <img src="assets/images/Discover/<?php echo $value['product_image'] ?>" alt="bono">
                             <div>
                                 <p><?php echo $value['product_name'] ?></p>
-                                <small><span>$</span><?php echo $value['product_price'] ?></small>
-                                <p>color: <?php echo $value['product_color'] ?></p>
+                                <p><span>$</span><?php echo $value['product_price'] ?></p>
+                                <p>Color: <?php echo $value['product_color'] ?></p>
                                 <br>
                                 <form action="cart.php" method="POST">
                                     <input type="hidden" name="remove_id" value="<?php echo $value['product_id']?>">
@@ -131,7 +141,7 @@ else
                     
                     <td>
                         <span>$</span>
-                        <span class="product-price"></span>
+                        <span class="product-price"><?php echo $value['product_quantity'] * $value['product_price'] ?></span>
                     </td>
                 </tr>
             <?php }?>
@@ -141,12 +151,8 @@ else
         <div class="cart-total">
             <table>
                 <tr>
-                    <td>Subtotal</td>
-                    <td>$58.80</td>
-                </tr>
-                <tr>
                     <td>Total</td>
-                    <td>$58.80</td>
+                    <td>$<?php echo $_SESSION['total'] ?></td>
                 </tr>
             </table>
         </div>

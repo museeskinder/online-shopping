@@ -54,6 +54,9 @@
     width: 100%;
 }
 
+.cart .product-info:first-child {
+    text-transform: uppercase;
+}
 .cart .product-info p {
     margin: 3px;
 }
