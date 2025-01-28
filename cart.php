@@ -1,3 +1,56 @@
+<?php 
+
+session_start();
+
+if(is_set($_POST('add_to_cart'))) {
+    // assuming a product is added to the cart
+    if(is_set($_SESSION['cart'])) {
+        $products_id_array = array_column($_SESSION['cart'], 'product_id');
+        if(!in_array($_POST['product_id'], $products_id_array)) {
+            $product_array = array(
+                'product_id' => $_POST['product_id'],
+                'product_name' => $_POST['product_name'],
+                'product_price' => $_POST['product_price'],
+                'product_image' => $_POST['product_image'],
+                'product_color' => $_POST['product_color'],
+                'product_quantity' => $_POST['product_quantity']
+            );
+
+            $_SESSION['cart'][$product_id] = $product_array;
+        }else {
+            echo '<script>alert("product was already added to the cart!");</script>';
+            echo '<script>window.location="index.php"</script>';
+        }
+    }
+
+    // assuming this is a new product
+    else {
+        $product_array = array(
+            'product_id' => $_POST['product_id'],
+            'product_name' => $_POST['product_name'],
+            'product_price' => $_POST['product_price'],
+            'product_image' => $_POST['product_image'],
+            'product_color' => $_POST['product_color'],
+            'product_quantity' => $_POST['product_quantity']
+        );
+
+        $_SESSION['cart'][$product_id] = $product_array;
+        // [ 1 => [], 2 => [] ]
+    }
+
+
+
+}
+else 
+    header('location: index.php');
+
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,9 +102,10 @@
                         <div>
                             <p>Bono</p>
                             <small><span>$</span>58.80</small>
+                            <small style="display: block;"><span>color: </span>Red</small>
                             <br>
-                            <a class="remove-btn" href="#">Remove</a>
                         </div>
+                        <a class="remove-btn" href="#">Remove</a>
                     </div>
                 </td>
 
@@ -66,29 +120,6 @@
                 </td>
             </tr>
 
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="assets/images/Discover/bono.webp" alt="bono">
-                        <div>
-                            <p>Bono</p>
-                            <small><span>$</span>58.80</small>
-                            <br>
-                            <a class="remove-btn" href="#">Remove</a>
-                        </div>
-                    </div>
-                </td>
-
-                <td>
-                    <input type="number" value="1">
-                    <a href="#" class="edit-btn">Edit</a>
-                </td>
-                
-                <td>
-                    <span>$</span>
-                    <span class="product-price">58.80</span>
-                </td>
-            </tr>
         </table>
 
         <div class="cart-total">
