@@ -43,6 +43,17 @@ else if(isset($_POST['remove_product'])) {
     $product_id = $_POST['remove_id'];
     unset($_SESSION['cart'][$product_id]);
 }
+
+//editing item quanity in the cart
+else if(isset($_POST['edit_product'])) {
+    $product_id = $_POST['edit_id'];
+    $product_quantity = $_POST['product_quantity'];
+    
+    $product_array = $_SESSION['cart'][$product_id];
+    $product_array['product_quantity'] = $product_quantity;
+
+    $_SESSION['cart'][$product_id] = $product_array;
+}
 else 
     header('location: index.php');
 ?>
@@ -110,10 +121,13 @@ else
                         </div>
                     </td>
 
-                    <td>
-                        <input type="number" value="<?php echo $value['product_quantity'] ?>">
-                        <a href="#" class="edit-btn">Edit</a>
-                    </td>
+                    <form action="cart.php" method="POST">
+                        <td>
+                            <input type="hidden" name="edit_id" value="<?php echo $value['product_id']?>">
+                            <input type="number" value="<?php echo $value['product_quantity'] ?>" name="product_quantity">
+                            <input type="submit" class="edit-btn" value="Edit" name="edit_product">
+                        </td>
+                    </form>
                     
                     <td>
                         <span>$</span>
