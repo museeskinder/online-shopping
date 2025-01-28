@@ -26,7 +26,7 @@
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="cart-icon"><a href="cart.html"><img class="cart-img" src="assets/images/parcel.png" alt="shopping-bag-icon"></a></li>
+                <li class="cart-icon"><a href="cart.php"><img class="cart-img" src="assets/images/parcel.png" alt="shopping-bag-icon"></a></li>
                 <a href="#"><img id="close" src="assets/images/close.png" alt="close button"></a>
             </ul>
         </div>

@@ -2,9 +2,9 @@
 
 session_start();
 
-if(is_set($_POST('add_to_cart'))) {
+if(isset($_POST['add_to_cart'])) {
     // assuming a product is added to the cart
-    if(is_set($_SESSION['cart'])) {
+    if(isset($_SESSION['cart'])) {
         $products_id_array = array_column($_SESSION['cart'], 'product_id');
         if(!in_array($_POST['product_id'], $products_id_array)) {
             $product_array = array(
@@ -16,10 +16,9 @@ if(is_set($_POST('add_to_cart'))) {
                 'product_quantity' => $_POST['product_quantity']
             );
 
-            $_SESSION['cart'][$product_id] = $product_array;
+            $_SESSION['cart'][$_POST['product_id']] = $product_array;
         }else {
             echo '<script>alert("product was already added to the cart!");</script>';
-            echo '<script>window.location="index.php"</script>';
         }
     }
 
@@ -34,21 +33,18 @@ if(is_set($_POST('add_to_cart'))) {
             'product_quantity' => $_POST['product_quantity']
         );
 
-        $_SESSION['cart'][$product_id] = $product_array;
+        $_SESSION['cart'][$_POST['product_id']] = $product_array;
         // [ 1 => [], 2 => [] ]
     }
+}
 
-
-
+//removing a product from the cart
+else if(isset($_POST['remove_product'])) {
+    $product_id = $_POST['remove_id'];
+    unset($_SESSION['cart'][$product_id]);
 }
 else 
     header('location: index.php');
-
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -64,15 +60,15 @@ else
 </head>
 <body>
     <section id="header">
-        <a href="#" class="logo"><p>Shopii</p></a>
+        <a href="index.php" class="logo"><p>Shopii</p></a>
 
         <div>
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="cart-icon"><a href="cart.html"><img class="cart-img" src="assets/images/parcel.png" alt="shopping-bag-icon"></a></li>
+                <li class="cart-icon"><a href="cart.php"><img class="cart-img" src="assets/images/parcel.png" alt="shopping-bag-icon"></a></li>
                 <a href="#"><img id="close" src="assets/images/close.png" alt="close button"></a>
             </ul>
         </div>
@@ -95,30 +91,36 @@ else
                 <th>Quantity</th>
                 <th>Subtotal</th>
             </tr>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="assets/images/Discover/bono.webp" alt="bono">
-                        <div>
-                            <p>Bono</p>
-                            <small><span>$</span>58.80</small>
-                            <small style="display: block;"><span>color: </span>Red</small>
-                            <br>
-                        </div>
-                        <a class="remove-btn" href="#">Remove</a>
-                    </div>
-                </td>
 
-                <td>
-                    <input type="number" value="1">
-                    <a href="#" class="edit-btn">Edit</a>
-                </td>
-                
-                <td>
-                    <span>$</span>
-                    <span class="product-price">58.80</span>
-                </td>
-            </tr>
+            <?php foreach($_SESSION['cart'] as $key => $value) {?>
+                <tr>
+                    <td>
+                        <div class="product-info">
+                            <img src="assets/images/Discover/<?php echo $value['product_image'] ?>" alt="bono">
+                            <div>
+                                <p><?php echo $value['product_name'] ?></p>
+                                <small><span>$</span><?php echo $value['product_price'] ?></small>
+                                <p>color: <?php echo $value['product_color'] ?></p>
+                                <br>
+                                <form action="cart.php" method="POST">
+                                    <input type="hidden" name="remove_id" value="<?php echo $value['product_id']?>">
+                                    <input type="submit" value="Remove" name="remove_product" class="remove-btn">
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <input type="number" value="<?php echo $value['product_quantity'] ?>">
+                        <a href="#" class="edit-btn">Edit</a>
+                    </td>
+                    
+                    <td>
+                        <span>$</span>
+                        <span class="product-price"></span>
+                    </td>
+                </tr>
+            <?php }?>
 
         </table>
 
