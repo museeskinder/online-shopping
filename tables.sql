@@ -17,9 +17,10 @@ CREATE TABLE IF NOT EXISTS `orders` (
     `order_id` int(11) NOT NULL AUTO_INCREMENT,
     `order-cost` decimal(6,2) NOT NULL,
     `order-status` varchar(100) NOT NULL DEFAULT 'on_hold',
-    `user-id` int(11) NOT NULL,
+    `user_id` int(11) NOT NULL,
     `user_phone` int(11) NOT NULL,
     `user_city` varchar(225) NOT NULL,
+    'user_email' varchar(225) NOT NULL,
     `order_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`order_id`)
 )  ENGINE=InnoDB DEFAULT CHARSET=latin1;
