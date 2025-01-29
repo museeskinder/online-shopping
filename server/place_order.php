@@ -56,6 +56,8 @@ if(isset($_POST['place_order'])) {
 
         $order_items_statement->execute();
 
+        //clean the cart item since order is placed and items kept in db
+        usset($_SESSION['cart']);
     } 
 
    
