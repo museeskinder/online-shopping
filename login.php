@@ -21,7 +21,7 @@
                 $_SESSION['user_email'] = $user_email;
                 $_SESSION['user_logged'] = true;
                 
-                header('location: login.php?message=logged in successfully');
+                header('location: login.php?logged_success=logged in successfully');
 
             }
             else

@@ -38,7 +38,7 @@
             if($registerUser->execute()) {
                 $_SESSION['user_name'] = $name;
                 $_SESSION['user_email'] = $email;
-                header('location: register.php?register=account created successfully');
+                header('location: register.php?register_success=account created successfully');
                 $_SESSION['user_logged'] = true;
             }
             else
