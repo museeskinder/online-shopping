@@ -40,6 +40,11 @@
                 header('location: register.php?error=could not create an account at the moment');
         }
     }
+
+    else if(isset($_SESSION['logged_in'])) {
+        header('location: account.php');
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +107,7 @@
                     <input type="submit" class="btn" id="register-btn" value="Register" name="register">
                 </div>
                 <div class="form-group">
-                    <a id="register-url" class="btn">Do you have an account? Login</a>
+                    <a id="register-url" class="btn" name="login">Do you have an account? Login</a>
                 </div>
             </form>
         </div>
