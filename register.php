@@ -2,6 +2,11 @@
     include('server/connection.php');
     session_start();
 
+    if(isset($_SESSION['user_logged']))  {
+        header('location: account.php');
+        exit();
+    }
+
     if(isset($_POST['register'])) {
         $name = $_POST['name'];
         $email= $_POST['email'];
@@ -23,27 +28,22 @@
             $checkUser->bind_result($num_rows);
             $checkUser->store_result();
             $checkUser->fetch();
-            if($num_rows != 0)
+            if($num_rows !== 0)
                 header('location: register.php?error=user with email already exists');
 
             //register user to db
             $registerUser= $conn->prepare("INSERT INTO users( user_name, user_email, user_password) 
                 VALUES(?, ?, ? )");
-            $registerUser->bind_param('sss', $name, $email, password_hash($password, PASSWORD_BCRYPT));
+            $registerUser->bind_param('sss', $name, $email, md5($password));
             if($registerUser->execute()) {
                 $_SESSION['user_name'] = $name;
                 $_SESSION['user_email'] = $email;
-                $_SESSION['logged_in'] = true;
                 header('location: register.php?register=account created successfully');
+                $_SESSION['user_logged'] = true;
             }
             else
                 header('location: register.php?error=could not create an account at the moment');
         }
-    }
-
-    else if(isset($_SESSION['logged_in'])) {
-        header('location: account.php');
-        exit;
     }
 ?>
 
@@ -82,7 +82,7 @@
     <!-- Register Section-->
      <section class="my-5 py-5">
         <div class="container text-center mt-3 pt-5">
-            <h2 class="font-weight-bold">Login</h2>
+            <h2 class="font-weight-bold">Register Account</h2>
         </div>
         <div class="mx-auto container">
             <form action="register.php" id="register-form" method="POST">
