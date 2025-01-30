@@ -1,9 +1,46 @@
 <?php 
 
+include('server/connection.php');
 session_start();
+
 if(!$_SESSION['user_logged']) {
     header('location: login.php');
     exit;
+}
+
+if(isset($_GET['logout'])) {
+    if(isset($_SESSION['user_logged'])) {
+        unset($_SESSION['user_logged']);
+        unset($_SESSION['user_email']);
+        unset($_SESSION['user_name']);
+        unset($_SESSION['user_id']);
+        header('location: login.php');
+        exit;
+    }
+}
+
+
+if(isset($_POST['change_password'])) {
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirm_password'];
+
+
+    if($password !== $confirmPassword)
+        header('location: account.php?error=password dosnt match');
+    if(strlen($password) < 8)
+        header('location: account.php?error=password must be atleast 8 characters long');
+    else {
+        $passChange = $conn->prepare("UPDATE users SET user_password=? WHERE user_email=?");
+        $passChange->bind_param('ss', md5($password), $_SESSION['user_email']);
+
+        if($passChange->execute())
+            header('location: account.php?message=password updated successfully');
+        else
+            header('location: account.php?error=could not update the password');
+    }
+
+
+
 }
 
 ?>
@@ -44,30 +81,34 @@ if(!$_SESSION['user_logged']) {
     <section class="my-2 py-5">
         <div class="row container mx-auto">
             <div class="text-center mt-3 pt-5 col-lg-6 col-md-12 col-sm-12">
+                <p style="color: green" class="text-center"><?php if(isset($_GET['register_success'])) echo $_GET['register_success'] ?></p>
+                <p style="color: green" class="text-center"><?php if(isset($_GET['login_success'])) echo $_GET['login_success'] ?></p>
                 <h3 class="font-weight-bold">Account Info</h3>
                 <hr class="mx-auto">
                 <div class="account-info">
                     <p>User Name: <span><?php if(isset($_SESSION['user_name'])) echo $_SESSION['user_name'] ?></span></p>
                     <p>Email: <span><?php if(isset($_SESSION['user_email'])) echo $_SESSION['user_email'] ?></span></p>
                     <p><a href="orders" id="order-btn">Your Orders</a></p>
-                    <p><a href="" id="logout-btn">Logout</a></p>
+                    <p><a href="account.php?logout=1" id="logout-btn">Logout</a></p>
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-12 col-sm-12">
-                <form id="account-form">
+                <form id="account-form" method="POST" action="account.php">
                     <h3>Change Password</h3>
                     <hr class="mx-auto">
+                    <p style="color: red" class="text-center"><?php if(isset($_GET['error'])) echo $_GET['error'] ?></p>
+                    <p style="color: green" class="text-center"><?php if(isset($_GET['message'])) echo $_GET['message'] ?></p>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password"  class="form-control" id="account-password" placeholder="Password" required>
+                        <input type="password"  class="form-control" id="account-password" placeholder="Password" name="password" required>
                     </div>
                     <div class="form-group">
                         <label>Confirm Password</label>
-                        <input type="password"  class="form-control" id="confirm-account-password" placeholder="Confirm Password" required>
+                        <input type="password"  class="form-control" id="confirm-account-password" placeholder="Confirm Password" name="confirm_password" required>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Change Password" class="btn" id="change-pass-btn">
+                        <input type="submit" value="Change Password" class="btn" id="change-pass-btn" name="change_password">
                     </div>
                 </form>
 
