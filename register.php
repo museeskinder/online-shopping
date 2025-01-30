@@ -36,6 +36,7 @@
                 VALUES(?, ?, ? )");
             $registerUser->bind_param('sss', $name, $email, md5($password));
             if($registerUser->execute()) {
+                $_SESSION['user_id'] = $user_id;
                 $_SESSION['user_name'] = $name;
                 $_SESSION['user_email'] = $email;
                 header('location: register.php?register_success=account created successfully');
