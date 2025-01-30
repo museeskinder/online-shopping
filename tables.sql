@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     `user_id` int(11) NOT NULL AUTO_INCREMENT,
     `user_name` varchar(100) NOT NULL,
     `user_email` varchar(100) NOT NULL,
+    `user_password` varchar(100) NOT NULL,
     PRIMARY KEY (`user_id`),
     UNIQUE KEY `UX_Constraint (`user_email`)`
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
