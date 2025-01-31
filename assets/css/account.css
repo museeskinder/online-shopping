@@ -32,7 +32,7 @@
 }
 
 .orders th{
-    text-align: left;
+    text-align: right;
     padding: 5px 10px;
     color: #1a1a1a;
     background-color: #e3e6f3;
@@ -51,5 +51,10 @@
     width: 80px;
     width: 80px;
     margin-right: 10px;
+}
+
+.orders .order-details-btn {
+    color: #fff;
+    background-color: #088178;
 }
 

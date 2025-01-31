@@ -38,9 +38,15 @@ if(isset($_POST['change_password'])) {
         else
             header('location: account.php?error=could not update the password');
     }
+}
 
 
+if(isset($_SESSION['user_logged'])) {
+    $get_orders = $conn->prepare("SELECT * FROM orders WHERE user_id=? ");
+    $get_orders->bind_param('i', $_SESSION['user_id']);
+    $get_orders->execute();
 
+    $orders = $get_orders->get_result();
 }
 
 ?>
@@ -126,23 +132,42 @@ if(isset($_POST['change_password'])) {
 
         <table class="mt-5 pt-5">
             <tr>
-                <th>Product</th>
-                <th>Date</th>
+                <th>Order id</th>
+                <th>Order Cost</th>
+                <th>Order Status</th>
+                <th>Order Date</th>
+                <th>Order Details</th>
             </tr>
+
+            <?php while($row = $orders->fetch_assoc()) { ?>
             <tr>
                 <td>
                     <div class="product-info">
-                        <img src="assets/images/Discover/bono.webp" alt="">
                         <div>
-                            <p class="mt-3">White Shoes</p>
+                            <p class="mt-3"><?php echo $row['order_id']; ?></p>
                         </div>
                     </div>
                 </td>
 
                 <td>
-                    <span>2025-1-26</span>
+                    <span>$ <?php echo $row['order_cost']; ?></span>
+                </td>
+
+                <td>
+                    <span><?php if($row['order_status'] === 'on_hold') echo 'Ongoing order' ?></span>
+                </td>
+
+                <td>
+                    <span><?php echo $row['order_date']; ?></span>
+                </td>
+
+                <td>
+                    <form action="">
+                        <input type="submit" class="btn order-details-btn" value="details">
+                    </form>
                 </td>
             </tr>
+            <?php }?>
         </table>
     </section>
 

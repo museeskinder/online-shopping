@@ -13,7 +13,7 @@ if(isset($_POST['place_order'])) {
     $address = $_POST['address'];
     $order_cost = $_SESSION['total'];
     $order_status = "on_hold";
-    $user_id = $_SESSION['order_id'];
+    $user_id = $_SESSION['user_id'];
     $order_date = date('Y-m-d H:i:s');
 
     $order_statement = $conn->prepare("INSERT INTO 
@@ -57,7 +57,7 @@ if(isset($_POST['place_order'])) {
         $order_items_statement->execute();
 
         //clean the cart item since order is placed and items kept in db
-        usset($_SESSION['cart']);
+        unset($_SESSION['cart']);
     } 
 
    
