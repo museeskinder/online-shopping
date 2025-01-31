@@ -1,3 +1,12 @@
+<?php
+    include('server/connection.php');
+    include('server/get_discover_product.php');
+
+    $statement = $conn->prepare("SELECT * FROM products");
+    $statement->execute();
+    $products= $statement->get_result();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,67 +36,21 @@
         </div>
     </section>
 
-    <!-- Discover Section-->
+    <!-- Shop Items Section-->
     <section id="discover">
-    <h2>Discover What's New</h2>
-    <p>New products in stock</p>
+    <h2>Our Products</h2>
     <div class="dis-container">
-        <div class="dis">
-            <img src="assets/images/Discover/loosefit_crew-neck_cotton-grey.webp" alt="loose fit crew-neck cotton color grey">
-            <div class="des">
-                <span>loose fit crew-neck cotton T-Shirt</span>
-                <span>$50.00<span class="del">$58.77</span></span>
+        <?php while($row = $products->fetch_assoc()){ ?>
+            <div class="dis" onclick="window.location.href='single_product.php?product_id=<?php echo $row['product_id'] ?>'">
+                <img src="assets/images/Discover/<?php echo $row['product_image']; ?>" alt="loose fit crew-neck cotton color grey">
+                <div class="des">
+                    <span><?Php echo $row['product_name']; ?></span>
+                    <span>$<?php echo calculatePrice($row['product_price'], $row['product_special_discount']) ?>
+                        <span class="del">$<?php echo  displayPrice($row['product_price'], $row['product_special_discount'])?></span>
+                    </span>
+                </div>
             </div>
-        </div>
-        <div class="dis">
-            <img src="assets/images/Discover/oversized-tee-black.webp" alt="oversized-tee-black">
-            <div class="des">
-                <span>oversized tee black</span>
-                <span>$40.43</span>
-            </div>
-        </div>
-        <div class="dis">
-            <img src="assets/images/Discover/oversized-tee-pearl-pink.webp" alt="oversized-tee-pearl-pink">
-            <div class="des">
-                <span>oversized tee pearl pink</span>
-                <span>$32.00<span class="del">$45.57</span></span>
-            </div>
-        </div>
-        <div class="dis">
-            <img src="assets/images/Discover/pure-cottton-biege.webp" alt="pure-cottton-beige">
-            <div class="des">
-                <span>pure cotton beige</span>
-                <span>$44.00</span>
-            </div>
-        </div>
-        <div class="dis" onclick="window.location.href='single_product.html';">
-            <img src="assets/images/Discover/bono.webp" alt="bono-men-hoodie">
-            <div class="des">
-                <span>bono men hoodie</span>
-                <span>$58.90</span>
-            </div>
-        </div>
-        <div class="dis">
-            <img src="assets/images/Discover/light-grey-short-pants.webp" alt="light-grey-short-pants">
-            <div class="des">
-                <span>light gere short pants</span>
-                <span>$30.43<span class="del">$40.57</span></span>
-            </div>
-        </div>
-        <div class="dis">
-            <img src="assets/images/Discover/men-full-sleeve.webp" alt="men-full-sleeve">
-            <div class="des">
-                <span>men full sleeve</span>
-                <span>$39.00<span class="del">$41.20</span></span>
-            </div>
-        </div>
-        <div class="dis">
-            <img src="assets/images/Discover/stylish-fit-hoodie.webp" alt="pure-cottton-beige">
-            <div class="des">
-                <span>pure cotton beige</span>
-                <span>$24.77</span>
-            </div>
-        </div>
+        <?php }?>
     </div>
     <div class="pagination">
         <ul>
