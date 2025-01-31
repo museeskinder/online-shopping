@@ -162,8 +162,9 @@ if(isset($_SESSION['user_logged'])) {
                 </td>
 
                 <td>
-                    <form action="">
-                        <input type="submit" class="btn order-details-btn" value="details">
+                    <form action="order_details.php" method="POST">
+                        <input type="hidden" value="<?php echo $row['order_id']; ?>" name="order_id">
+                        <input type="submit" class="btn order-details-btn" value="Details" name="order_details_btn">
                     </form>
                 </td>
             </tr>
