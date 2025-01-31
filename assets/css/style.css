@@ -210,7 +210,6 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap; 
     margin: 70px 0;
 }
 
@@ -250,6 +249,9 @@ p {
     height: auto;
 }
 
+.shop-container {
+    display: flex;
+}
 footer .container {
     display: flex;
     align-items: center;
@@ -406,7 +408,6 @@ footer .foo-sec {
 
 .pagination ul li {
     list-style: none;
-    border: 1px solid #088178;
     border-radius: 2px;
     padding: 10px 5px;
 }
@@ -417,7 +418,7 @@ footer .foo-sec {
     font-size: 17px;
 }
 
-.pagination ul li:hover, .pagination ul li a:hover {
+.pagination ul li a:hover{
     background-color: #088178;
     color: #cdebbc;
 }
