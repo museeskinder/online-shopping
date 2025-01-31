@@ -8,14 +8,6 @@
     <linkerel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 <body>
-    <!--Search and Account Section-->
-    <section id="search">
-        <a href="account.html"><img src="assets/images/search/profile.png" alt="profile"></a>
-        <div class="search-area">
-            <input type="search" class="search">
-            <a href="#"><img class="search-icon" src="assets/images/search/magnifying-glass.png" alt="search" title="search"></a>
-        </div>
-    </section>
     <!-- Navbar -->
     <section id="header">
         <a href="#" class="logo"><p>Shopii</p></a>
@@ -27,10 +19,12 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li class="cart-icon"><a href="cart.php"><img class="cart-img" src="assets/images/parcel.png" alt="shopping-bag-icon"></a></li>
+                <li><a href="account.html"><img src="assets/images/search/profile.png" alt="profile"></a></li>
                 <a href="#"><img id="close" src="assets/images/close.png" alt="close button"></a>
             </ul>
         </div>
         <div id="mobile">
+                <a href="account.html"><img src="assets/images/search/profile.png" alt="profile"></a>
                 <a href="cart.html"><img src="assets/images/parcel.png" alt="shopping-bag-icon"></a>
                 <img  id="bar" src="assets/images/hamburger.png" alt="hamburger icon">
         </div>
