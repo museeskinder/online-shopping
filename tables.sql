@@ -200,20 +200,138 @@ INSERT INTO `products` (
     );
 
 
+/* light grey short pant */
+    INSERT INTO `products` (
+        `product_name`, 
+        `product_category`,
+        `product_description`,
+        `product_image`,
+        `product_image2`,
+        `product_image3`,
+        `product_image4`,
+        `product_price`,
+        `product_special_discount`,
+        `product_color`,
+        `product_size`
+    ) VALUES (
+        'grey short pant',
+        'Pants',
+        'light grey short pant for ment',
+        'light-grey-short-pants.webp',
+        'light-grey-short-pant2.webp',
+        'light-grey-short-pant3.webp',
+        'light-grey-short-pant4.webp',
+        44.00,
+        0,
+        'grey',
+        'L, S, XL, M'
+    );
+
+    /* puma black fandom */
+    INSERT INTO `products` (
+        `product_name`, 
+        `product_category`,
+        `product_description`,
+        `product_image`,
+        `product_image2`,
+        `product_image3`,
+        `product_image4`,
+        `product_price`,
+        `product_special_discount`,
+        `product_color`,
+        `product_size`
+    ) VALUES (
+        'puma black pant',
+        'Pants',
+        'puma fandom boys black short',
+        'puma-fandom-boys-black-short.webp',
+        'puma-black2.webp',
+        'puma-black3.webp',
+        'puma-black4.webp',
+        19,
+        3,
+        'Black',
+        'L, S, XL, M'
+    );
+
+    /* slim fit black*/
+    INSERT INTO `products` (
+        `product_name`, 
+        `product_category`,
+        `product_description`,
+        `product_image`,
+        `product_image2`,
+        `product_image3`,
+        `product_image4`,
+        `product_price`,
+        `product_special_discount`,
+        `product_color`,
+        `product_size`
+    ) VALUES (
+        'slim fit men',
+        'Pants',
+        'slim fit branded mens throusars black',
+        'slim-fit-branded-mens-trousers.webp',
+        'slim-fit2.webp',
+        'slim-fit3.webp',
+        'slim-fit4.webp',
+        30,
+        0,
+        'Grey',
+        'L, XL, M'
+    );
 
 
-
-
-/*
-<?php include('server/get_discover_product.php'); ?>
-
-            <?php while($row = $discoverProducts->fetch_assoc()){ ?>
-                <div class="dis">
-                    <img src="assets/images/Discover/loosefit_crew-neck_cotton-grey.webp" alt="loose fit crew-neck cotton color grey">
-                    <div class="des">
-                        <span><?php echo $row['product_name'] ?></span>
-                        <span>$<?php echo calculatePrice($row['product_price'], $row['product_special_discount'])?>
-                            <span class="del">$55</span>
-                        </span>
-            <
-*/
+    /* denim blue jacket*/
+    INSERT INTO `products` (
+        `product_name`, 
+        `product_category`,
+        `product_description`,
+        `product_image`,
+        `product_image2`,
+        `product_image3`,
+        `product_image4`,
+        `product_price`,
+        `product_special_discount`,
+        `product_color`,
+        `product_size`
+    ) VALUES (
+        'denim blue jacket',
+        'Hoodies',
+        'denim outfit blue jacket for women',
+        'denim-outfit-blue-jacket.webp',
+        'denim2.webp',
+        'denim3.webp',
+        'denim4.webp',
+        55,
+        9,
+        'Blue',
+        'L, XL, M'
+    );
+    
+    /* trendy casual hoodie*/
+    INSERT INTO `products` (
+        `product_name`, 
+        `product_category`,
+        `product_description`,
+        `product_image`,
+        `product_image2`,
+        `product_image3`,
+        `product_image4`,
+        `product_price`,
+        `product_special_discount`,
+        `product_color`,
+        `product_size`
+    ) VALUES (
+        'hoodie for women',
+        'Hoodies',
+        'trendy casual pullover hoodie for women',
+        'trendy-casual-pullover-hoodie-for-women.webp',
+        'tendy2.webp',
+        'trendy3.webp',
+        'trendy4.webp',
+        60,
+        4,
+        'White',
+        'L, XL, M'
+    );

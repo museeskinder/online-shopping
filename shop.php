@@ -32,9 +32,10 @@
 <body>
     <?php include('assets/layouts/header.php');?>
 
-    <div class="shop-container">
+    <div class="shop-container container">
+        <div class="row">
             <!-- Filter Section -->
-            <section id="filter" class="my-5 py-5 ms-2">
+            <section id="filter" class="col-lg-4 my-5 py-5 ms-2">
                 <div class="container mt-5 py-5">
                     <p>Filter Products</p>
                     <hr>
@@ -85,31 +86,22 @@
             </section>
 
             <!-- Shop Items Section-->
-            <section id="discover" class="col-lg-8">
-                <h2>Our Products</h2>
-                <div class="dis-container">
-                    <?php while($row = $products->fetch_assoc()){ ?>
-                        <div class="dis" onclick="window.location.href='single_product.php?product_id=<?php echo $row['product_id'] ?>'">
-                            <img class="" src="assets/images/Discover/<?php echo $row['product_image']; ?>" alt="loose fit crew-neck cotton color grey">
-                            <div class="des">
-                                <span><?Php echo $row['product_name']; ?></span>
-                                <span>$<?php echo calculatePrice($row['product_price'], $row['product_special_discount']) ?>
-                                    <span class="del">$<?php echo  displayPrice($row['product_price'], $row['product_special_discount'])?></span>
-                                </span>
-                            </div>
+            <section id="discover" class="col-lg-8 my-5 pb-5">
+                <div class="container text-center mt-5 py-5">
+                    <h2>Our products</h2>
+                    <div class="row mx-auto container-fluid">
+                        <div class="product col-lg-3 col-md-4 col-sm-6 mb-3">
+                            <?php while($row = $products->fetch_assoc()) { ?>
+                                    <a href="single_product.php?product_id=<?php echo $row['product_id']?>"><img class="img-fluid mb-3"  src="assets/images/Discover/<?php echo $row['product_image']?>" alt="loose fit crew-neck cotton color grey"></a>
+                                    <p><?php echo $row['product_name']?></p>
+                                    <span>$<?php echo calculatePrice($row['product_price'], $row['product_special_discount']) ?>
+                                        <span class="del">$<?php echo  displayPrice($row['product_price'], $row['product_special_discount'])?></span>
+                                    </span>
+                            <?php }?>
                         </div>
-                    <?php }?>
-                </div>
-                <div class="pagination">
-                    <ul>
-                        <li class="page-item"><a href="#" class="page-link">Previous</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                    </ul>
                 </div>
             </section>
+        </div>
     </div>
 
 <?php include('assets/layouts/footer.php');?>

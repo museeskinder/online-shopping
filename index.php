@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoppi | Your Choice</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <linkerel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <linke rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
     <?php include('assets/layouts/header.php'); ?>
@@ -48,26 +49,26 @@
       </section>
 
     <!-- Discover Section-->
-    <section id="discover">
-        <h2>Discover What's New</h2>
-        <p>New products in stock</p>
-        <div class="dis-container">
-            <?php include('server/get_discover_product.php'); ?> 
-            <?php while($row = $discoverProducts->fetch_assoc()) { ?>
-                <div class="dis">
-                    <a href="single_product.php?product_id=<?php echo $row['product_id']?>"><img src="assets/images/Discover/<?php echo $row['product_image']?>" alt="loose fit crew-neck cotton color grey"></a>
-                    <div class="des">
-                        <span><?php echo $row['product_name']?></span>
-                        <span>$<?php echo calculatePrice($row['product_price'], $row['product_special_discount']) ?>
-                            <span class="del">$<?php echo  displayPrice($row['product_price'], $row['product_special_discount'])?></span>
-                        </span>
-                    </div>
+    <section id="discover" class="my-5 pb-5">
+        <div class="container text-center mt-5 py-5">
+            <h2>Discover What's New</h2>
+            <p>New products in stock</p>
+            <div class="row mx-auto container-fluid">
+                <div class="product col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <?php include('server/get_discover_product.php'); ?> 
+                    <?php while($row = $discoverProducts->fetch_assoc()) { ?>
+                            <a href="single_product.php?product_id=<?php echo $row['product_id']?>"><img class="img-fluid mb-3"  src="assets/images/Discover/<?php echo $row['product_image']?>" alt="loose fit crew-neck cotton color grey"></a>
+                            <p><?php echo $row['product_name']?></p>
+                            <span>$<?php echo calculatePrice($row['product_price'], $row['product_special_discount']) ?>
+                                <span class="del">$<?php echo  displayPrice($row['product_price'], $row['product_special_discount'])?></span>
+                            </span>
+                    <?php }?>
                 </div>
-            <?php }?>
         </div>
     </section>
 
     <?php include('assets/layouts/footer.php'); ?>
     <script src="assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body> 
 </html>

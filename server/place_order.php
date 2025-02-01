@@ -59,10 +59,6 @@ if(isset($_POST['place_order'])) {
         //clean the cart item since order is placed and items kept in db
         unset($_SESSION['cart']);
     } 
-
-   
-
 }
-
 
 ?>

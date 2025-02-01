@@ -193,65 +193,32 @@ p {
     background-color: #fff2e5;
 }
 
-#discover {
-    padding: 20px 0;
-}
-
-#discover h2, #discover p {
-    text-align: center;
-}
-
-#discover p {
-    font-size: 20px;
-    font-family: 'Tangerine' cursive; 
-}
-
-#discover .dis-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 70px 0;
-}
-
-#discover .dis-container .dis {
-    height: 500px;
-    width: 370px;
-    margin: 0 2px;
-} 
-
-#discover .dis-container .dis img {
-    cursor: pointer;
-}
-
-#discover .dis-container .dis .des {
-    padding: 20px 0;
-    position: relative;
-}
-
-#discover .dis-container .dis .des span {
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-#discover .dis-container .dis .des span:nth-child(2) {
-    display: block;
-    color: #088178;
-    margin: 15px 0;
-}
-
-#discover .dis-container .dis .des span .del {
-    text-decoration: line-through;
-    margin-left: 10px;
-}
-
-#discover .dis-container .dis img {
-    width: 100%;
-    height: auto;
-}
 
 .shop-container {
     display: flex;
 }
+
+#discover .product {
+    cursor: pointer;
+}
+
+#discover .product p, span {
+    text-transform: uppercase;
+    color: #088178;
+}
+
+#discover .product .del {
+    text-decoration: line-through;
+}
+
+#discover .product img {
+    transition: 0.3 all;
+} 
+
+#discover .product img:hover {
+    opacity: 0.7;
+}
+
 footer .container {
     display: flex;
     align-items: center;
@@ -397,32 +364,6 @@ footer .foo-sec {
         flex-direction: column;
     }
 }
-
-.pagination {
-    margin: 15px 0;
-}
-
-.pagination ul {
-    display: flex;
-}
-
-.pagination ul li {
-    list-style: none;
-    border-radius: 2px;
-    padding: 10px 5px;
-}
-
-.pagination ul li a {
-    color: #088178;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.pagination ul li a:hover{
-    background-color: #088178;
-    color: #cdebbc;
-}
-
 
 /* Single product styles */
 .small-img-group {

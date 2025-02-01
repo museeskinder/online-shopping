@@ -57,12 +57,14 @@ else if(isset($_POST['edit_product'])) {
 function calculateTotal() {
     $total = 0;
 
-    foreach($_SESSION['cart'] as $key => $value) {
-        $product = $_SESSION['cart'][$key];
-        $total += $product['product_price'] * $product['product_quantity'];
-    }
+    if(isset($_SESSION['cart'])) {
+        foreach($_SESSION['cart'] as $key => $value) {
+            $product = $_SESSION['cart'][$key];
+            $total += $product['product_price'] * $product['product_quantity'];
+        }
 
-    return $total;
+        return $total;
+    }
 }
 
 $_SESSION['total'] = calculateTotaL();
@@ -95,7 +97,7 @@ $_SESSION['total'] = calculateTotaL();
                 <th>Subtotal</th>
             </tr>
 
-            <?php foreach($_SESSION['cart'] as $key => $value) {?>
+            <?php if(isset($_SESSION['cart'])) foreach($_SESSION['cart'] as $key => $value) {?>
                 <tr>
                     <td>
                         <div class="product-info">
