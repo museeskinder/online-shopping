@@ -1,6 +1,6 @@
 # online-shopping
 This repository is created for a web programming project.
-## technologies used
+## Technologies used
 - HTML
 - CSS / BOOTSTRAP
 - JAVASCRIPT
