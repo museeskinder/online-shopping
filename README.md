@@ -6,7 +6,7 @@ This repository is created for a web programming project.
 - JAVASCRIPT
 - PHP
 
-##Tools used
+## Tools used
 - Vscode
 - Apache server(local development)
 - MySql
